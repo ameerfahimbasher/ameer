@@ -1,0 +1,3375 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MustafaXCode </title>
+  <style>
+    /* ===========================
+       تنسيقات CSS للموقع
+       =========================== */
+
+    /* إعادة تعيين بعض الأنماط الافتراضية */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* تنسيقات الجسم العامة */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      direction: rtl; /* لضبط اتجاه النص من اليمين لليسار */
+      
+    }
+
+    /* رأس الصفحة */
+    header {
+      display: flex;
+      align-items: rtl;
+      flex-direction: column;
+      justify-content: flex-start; /* محاذاة العناصر إلى الجهة اليمنى */
+      background-color: #4CAF50; /* تغيير لون خلفية الرأس */
+      color: #fff;
+      padding: 0vw;
+      direction: rtl; /* جعل اتجاه النص من اليمين لليسار */
+    }
+
+   /* تنسيق الحاوية الأساسية للصورة والنص في الهيد */
+  #img-contenr {
+    display: flex; /* يجعل الصورة والاسم على نفس السطر */
+    align-items: center; /* محاذاة العناصر عموديًا */
+    gap: 10px; /* مسافة بين الصورة والنص */
+    padding:2vw;
+  }
+       
+       /*تنسيق الصوره في الهيدر*/
+    header img {
+      width: 20vw; /* زيادة عرض الصورة إلى 12% من عرض نافذة العرض */
+      height: 20vw; /* زيادة ارتفاع الصورة إلى 12% من عرض نافذة العرض */
+      border-radius: 50%; /* الحفاظ على الشكل الدائري للصورة */
+      margin-right: 2vw; /* مسافة بين الصورة واسم الموقع */
+    }
+          /* تنسيق عنوان الموقع */
+    header h1 {
+      font-size: 2em; /* حجم الخط لاسم الموقع بنسبة 2 من حجم الخط الأساسي */
+      margin-right: 3vw; /* مسافة بين الاسم والصورة */
+    }
+    
+    /* تنسيق شريط التنقل */
+   nav {
+   
+  background-color: #444; /* لون الخلفية */
+  padding: 10px 0;
+  
+  
+}
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      padding: 3vw;
+      margin: 0;
+      padding-right: 6px; /* إزاحة جميع العناصر داخل الناف بار إلى اليسار */
+
+      
+    }
+
+    nav ul li {
+      margin: 0 2vw; /* تقليل المسافة بين العناصر */
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 3.7vw; /* حجم الخط نسبة إلى عرض الشاشة */
+      white-space: nowrap; /* منع النصوص من الانتقال إلى السطر التالي */
+      padding: 1vw;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* إزالة الخط تحت الرابط عند التمرير أو عند النقر */
+    
+    nav ul li a.active {
+      text-decoration: none; /* إزالة تأثير الخط تحت الرابط */
+    }
+  
+
+    /* التأثير عند تحديد الصفحة النشطة */
+    nav ul li a.active {
+      background-color: #4CAF50; /* لون الخلفية عند النقر */
+      color: #fff; /* لون النص عند النقر */
+      border-radius: 5px; /* إضافة انحناء الزوايا */
+    }
+
+    /* تنسيقات الصفحات */
+    .page {
+      display: none;
+      padding: 2vw;
+    }
+
+    .page h2 {
+      font-size: 3vw; /* حجم الخط بنسبة 3% من عرض الشاشة */
+      margin-bottom: 2vw;
+   
+   }
+   /*   تنسيق الوسم بير للكتابه بحريه  */
+#alshrh {
+    white-space: pre-wrap; /* يسمح بانتقال النص إلى السطر التالي */
+    word-wrap: break-word; /* يسمح بكسر الكلمات الكبيرة لتفادي الخروج عن السطر */
+    overflow-wrap: break-word; /* نفس وظيفة word-wrap لتفادي التمرير الأفقي */
+    width: 98%;
+    box-sizing: border-box;
+    direction: rtl; /* يجعل اتجاه النص من اليمين إلى اليسار */
+    text-align: right; /* يحاذي النص إلى اليمين */
+    font-weight: 400; /* يمكن استخدام أوزان من 100 إلى 900 */
+    font-family: Arial, sans-serif; /* يحدد نوع الخط */
+    font-size: 16px; /* يحدد حجم النص */
+    color: black; /* تحديد لون النص */
+}
+        
+      /* تنسيق الكود المشروح  */
+    .code-box {
+        background-color: #272822;
+        color: #f8f8f2;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: left;
+        direction: ltr;
+        overflow: auto;
+        font-size: 16px;
+        line-height: 1.6;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        font-family: 'Courier New', monospace;
+        max-width: 100%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: background 0.3s ease;
+        position: relative;
+        cursor: pointer;
+        margin-bottom:20px;
+    }
+
+    .code-box:hover {
+        background-color: #32342c;
+    }
+
+    .code-box::before {
+        content: "نسخ";
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        font-size: 12px;
+        color: #bbb;
+    }
+
+    @media (max-width: 600px) {
+        .code-box {
+            font-size: 14px;
+            padding: 12px;
+        }
+    }
+    #anoin{
+      color: red; /* يحدد لون النص */
+      font-weight: bold; /* يجعل الخط سميكًا */
+text-align: right; /* يحاذي النص إلى اليمين */
+direction: rtl; /* يجعل اتجاه النص من اليمين إلى اليسار */
+font-size: 20px;
+padding:10px;
+      
+    }
+   #h-r{
+     margin-top:10px;
+   }     
+        
+  </style>
+</head>
+<body>
+  <!-- رأس الصفحة -->
+  <header>
+<div id="img-contenr">
+      <img src="https://i.imgur.com/Pq6YniL.jpg" alt="شعار موقع قرعة">
+    <h1> MustafaXCode </h1>
+</div>
+
+<div id="nav-contenr">
+    <!-- شريط التنقل -->
+  <nav>
+    <ul>
+      <li><a href="#" onclick="showPage('home', this)">الصفحة الرئيسية</a></li>
+      <li><a href="#" onclick="showPage('HTML', this)">HTML</a></li>
+      <li><a href="#" onclick="showPage('CSS', this)">CSS</a></li>
+      <li><a href="#" onclick="showPage('JavaScript', this)">JavaScript</a></li>
+
+    
+    </ul>
+  </nav>
+</div>
+
+  </header>
+
+  <!-- محتوى الصفحات -->
+ <div id="1" class="page">
+      <h4>HTML</h4>
+  
+  </div>
+ <div id="home" class="page">
+<div id="buttons-container">
+    <button class="btn" onclick="redirectTo('https://wiki.hsoub.com/HTML')">موقع تعلم HTML</button>
+    <button class="btn" onclick="redirectTo('https://wiki.hsoub.com/CSS')">موقع تعلم CSS</button>
+    <button class="btn" onclick="redirectTo('https://wiki.hsoub.com/JavaScript')">موقع تعلم JavaScript</button>
+</div>
+
+<style>
+    /* تنسيق صفحة الأزرار */
+    #buttons-container {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .btn {
+        width: 80%;
+        height: 15vh;
+        font-size: 20px;
+        margin: 10px 0;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<script>
+    function redirectTo(url) {
+        window.location.href = url; // توجيه المستخدم إلى الموقع المطلوب في نفس الصفحة
+    }
+</script>
+</div>
+<div id="HTML" class="page">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .button-containerhhh {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            width: 90%;
+            max-width: 900px;
+            z-index: 2;
+            margin: 2vh;
+            position: absolute;
+            padding-bottom:50px;
+        }
+
+        .lesson-buttonhhh {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            white-space: nowrap;
+            width: auto;
+            height: auto;
+            font-size: calc(1vw + 0.5em);
+            padding: calc(0.5vw + 10px) calc(1vw + 20px);
+        }
+
+        .lesson-buttonhhh:hover {
+            background-color: #0056b3;
+            transform: translateY(-4px);
+        }
+
+        .lesson-buttonhhh:active {
+            background-color: #004085;
+            transform: translateY(2px);
+        }
+
+        .lesson-pagehhh {
+            display: none;
+            background-color: white;
+            padding: 12px;
+            width: 95%;
+            max-width: 950px;
+            z-index: 1;
+            position: absolute;
+            text-align: right;
+            padding-bottom:50px;
+        }
+
+        .lesson-headerhhh {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align:rgba;
+        }
+
+        .lesson-titlehhh {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            
+        }
+
+        .back-buttonhhh {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .back-buttonhhh:hover {
+            background-color: #218838;
+        }
+
+    
+    </style>
+
+    <div id="Htmlhhh">
+        <div class="button-containerhhh" id="buttonsPagehhh">
+            <button class="lesson-buttonhhh" onclick="showLessonHHH(1)">الدرس 1</button>
+            <button class="lesson-buttonhhh" onclick="showLessonHHH(2)">الدرس 2</button>
+            <button class="lesson-buttonhhh" onclick="showLessonHHH(3)">الدرس 3</button>
+            <button class="lesson-buttonhhh" onclick="showLessonHHH(4)">الدرس 4</button>
+            <button class="lesson-buttonhhh" onclick="showLessonHHH(5)">الدرس 5</button>
+            <button class="lesson-buttonhhh" onclick="showLessonHHH(6)">الدرس 6</button>
+            <button class="lesson-buttonhhh" onclick="showLessonHHH(7)">الدرس 7</button>
+            <button class="lesson-buttonhhh" onclick="showLessonHHH(8)">الدرس 8</button>
+            <button class="lesson-buttonhhh" onclick="showLessonHHH(9)">الدرس 9</button>
+        </div>
+
+        <div class="lesson-pagehhh" id="lesson1hhh">
+            <div class="lesson-headerhhh">
+                <h2 class="lesson-titlehhh">HTML الدرس  1</h2>
+                <button class="back-buttonhhh" onclick="goBackHHH()">عودة</button>
+            </div>
+    <div>
+        <h1 style="color: #2c3e50; text-align: center; font-size: 28px; font-weight: bold;">أساسيات تطوير الويب</h1>
+        
+        <p style="line-height: 1.8; font-size: 18px; color: #333;">HTML، CSS، و JavaScript هي اللغات الأساسية لتطوير مواقع الويب.</p>
+
+        <h2 style="color: #2980b9; font-size: 24px; font-weight: bold;">ما هو <span style="color: #e74c3c; font-weight: bold;">HTML</span>؟</h2>
+        <p style="line-height: 1.8; font-size: 16px;"><strong>HTML (HyperText Markup Language)</strong> تُستخدم لإنشاء هيكل الصفحة وتحديد المحتوى، مثل العناوين، الفقرات، والصور.</p>
+
+        <h2 style="color: #2980b9; font-size: 24px; font-weight: bold;">ما هو <span style="color: #e74c3c; font-weight: bold;">CSS</span>؟</h2>
+        <p style="line-height: 1.8; font-size: 16px;"><strong>CSS (Cascading Style Sheets)</strong> تتحكم في تصميم الصفحة، مثل الألوان، الخطوط، والتنسيقات لجعل الموقع أكثر جاذبية.</p>
+
+        <h2 style="color: #2980b9; font-size: 24px; font-weight: bold;">ما هو <span style="color: #e74c3c; font-weight: bold;">JavaScript</span>؟</h2>
+        <p style="line-height: 1.8; font-size: 16px;"><strong>JavaScript</strong> تضيف التفاعلية إلى الموقع، مثل النقرات، الحركات، والتحديثات الديناميكية دون إعادة تحميل الصفحة.</p>
+
+        <p style="line-height: 1.8; font-size: 16px;">عند استخدامها معًا، تتيح لنا بناء مواقع ويب متكاملة وسريعة الاستجابة تجمع بين المحتوى، التصميم، والتفاعل.</p>
+    </div>
+        </div>
+
+<div class="lesson-pagehhh" id="lesson2hhh">
+    <div class="lesson-headerhhh">
+        <h2 class="lesson-titlehhh">HTML الدرس 2</h2>
+        <button class="back-buttonhhh" onclick="goBackHHH()">عودة</button>
+    </div>
+
+    <div>
+        <div id="drs">
+            <p id="anoin">هيكلة موقع HTML</p>
+            <pre class="code-box" onclick="copyCode(this)">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+   &lt;head&gt;
+       &lt;meta charset="UTF-8"&gt;
+       &lt;title&gt;عنوان الصفحة&lt;/title&gt;
+       &lt;style&gt;
+          /* أكواد CSS هنا */
+       &lt;/style&gt;
+   &lt;/head&gt;
+   
+   &lt;body&gt;
+      &lt;!-- المحتوى هنا --&gt;
+   &lt;/body&gt;
+&lt;/html&gt;
+            </pre>
+            <p id="anoin">1- شرح الوسم</p>
+            <pre class="code-box" onclick="copyCode(this)">
+&lt;!DOCTYPE html&gt;
+            </pre>
+            <pre id="alshrh">
+التوافق مع HTML5: إذا لم تستخدم هذا الوسم، قد يعتقد المتصفح أنك تستخدم إصدارًا قديمًا من HTML، وبالتالي قد لا يعمل بعض الكود بالطريقة المتوقعة ويكون مكانه في اول سطر قبل الوسم Html.
+            </pre>
+            <hr id="h-r">
+            <p id="anoin">2- شرح الوسم <html>...</html></p>
+            <pre class="code-box" onclick="copyCode(this)">
+&lt;html&gt;...&lt;/html&gt;
+            </pre>
+            <pre id="alshrh">
+هاذا الوسم هوه الاب لجميع اكود HTML كل شي يكتب في داخله .
+            </pre>
+            <hr id="h-r">
+            <p id="anoin">3- شرح الوسم</p>
+            <pre class="code-box" onclick="copyCode(this)">
+&lt;head&gt;...&lt;/head&gt;
+            </pre>
+            <pre id="alshrh">
+ 
+ يستخدم الوسم head لوصف الموقع فكل شي يكتب
+في داخله لتيظهر للمستخدم فنحن داخله نقوم بوصف الموقع 
+            </pre>
+            <p id="anoin">
+            <hr id="h-r">  
+            4- شرح الوسم 
+            </p>
+            <pre class="code-box" onclick="copyCode(this)">
+&lt;meta charset="UTF-8"&gt;
+            </pre>
+            <pre id="alshrh">
+هاذا هوه وسم ترميز نخبر فيه كوكل  ان يقوم بقرائه كل الحروف والارقام في العالم ويظهرها بشكلها الصحيح وموقع هاذا الوسم يكون داخل head
+            </pre>
+            <p id="anoin">
+            <hr id="h-r">  
+            5- شرح الوسم
+            </p>
+            <pre class="code-box" onclick="copyCode(this)">
+&lt;title&gt;عنوان الصفحة&lt;/title&gt;
+            </pre>
+            <pre id="alshrh">
+الوسم titleيحمل عنوان الموقع ويكون موقعه داخل الوسم head
+            </pre>
+            <p id="anoin">
+             <hr id="h-r"> 
+            6- شرح الوسم 
+            </p>
+            <pre class="code-box" onclick="copyCode(this)">
+&lt;style&gt;
+    /* أكواد CSS هنا */
+&lt;/style&gt;
+            </pre>
+            <pre id="alshrh">
+داخل الوسم style يكتب كل اكواد Css لتنسيق الصفحه من الوان وتعديل مظهرها ليصبح بشكل جميل ويكون موقعه داخل الوسم head
+            </pre>
+            <p id="anoin">
+            <hr id="h-r">
+            7- شرح الوسم 
+            </p>
+            <pre class="code-box" onclick="copyCode(this)">
+&lt;body&gt;
+    &lt;!-- المحتوى هنا --&gt;
+&lt;/body&gt;
+            </pre>
+            <pre id="alshrh">
+داخل الوسم body يتم اضافة كل ما نريد ان يظهر للمستخدم وموقعة يكون اسفل الوسم  head
+            </pre>
+            <hr id="h-r">
+            <pre id="alshrh">
+هنا نكون قد اكملنا الشرح المبدئي والهيكل المبدئي والاساسي لصفحات الويب
+            </pre>
+        </div>
+    </div>
+</div>
+
+<div class="lesson-pagehhh" id="lesson3hhh">
+    <div class="lesson-headerhhh">
+        <h2 class="lesson-titlehhh">HTML الدرس 3</h2>
+        <button class="back-buttonhhh" onclick="goBackHHH()">عودة</button>
+    </div>
+    <div id="drs">
+        <p id="anoin">
+1- شرح الوسم 
+        </p>
+        <pre class="code-box" onclick="copyCode(this)">
+&lt;h1&gt;عنوان هنا&lt;/h1&gt;
+        </pre>
+        <pre id="alshrh">
+في هاذا الكود يتم كتابه العناوين اما للصفحه او للمقالات 
+        </pre>
+        <hr id="h-r">
+        <p id="anoin">
+2- شرح الوسم 
+        </p>
+        <pre class="code-box" onclick="copyCode(this)">
+&lt;p&gt;نص الفقرة هنا&lt;/p&gt;
+        </pre>
+        <pre id="alshrh">
+في هاذا الوسم يتم كتابة النصوص العاديه 
+        </pre>
+        <hr id="h-r">
+        <p id="anoin">
+3- شرح الوسم 
+        </p>
+        <pre class="code-box" onclick="copyCode(this)">
+&lt;br&gt;
+        </pre>
+        <pre id="alshrh">
+نستخدم هاذا الوسم لكي ننزل سطر في النص ولا يكون النص على سطر واحد 
+        </pre>
+        <hr id="h-r">
+        <p id="anoin">
+4- شرح الوسم
+        </p>
+        <pre class="code-box" onclick="copyCode(this)">
+&lt;hr&gt;
+        </pre>
+        <pre id="alshrh">
+يستخدم على الوسم لعمل خط افقي في الصفحه
+        </pre>
+        <hr id="h-r">
+        <p id="anoin">
+5- شرح الوسم 
+        </p>
+        <pre class="code-box" onclick="copyCode(this)">
+&lt;b&gt;النص الغامق هنا&lt;/b&gt;
+        </pre>
+        <pre id="alshrh">
+نستخدم هاذا الوسم لجعل النص غامق
+        </pre>
+        <hr id="h-r">
+        <p id="anoin">
+6- شرح الوسم 
+        </p>
+        <pre class="code-box" onclick="copyCode(this)">
+&lt;pre&gt;
+هذا نص بتنسيق خاص
+يحتوي على    مسافات
+وعلامات بيضاء.
+&lt;/pre&gt;
+        </pre>
+        <pre id="alshrh">
+نستخدم هاذا الوسم للكتابه بحريه <br> فهو يحفظ المسافات التي نضعها في النص
+        </pre>
+    </div>
+</div>
+
+<div class="lesson-pagehhh" id="lesson4hhh">
+    <div class="lesson-headerhhh">
+        <h2 class="lesson-titlehhh">HTML الدرس 4</h2>
+        <button class="back-buttonhhh" onclick="goBackHHH()">عودة</button>
+    </div>
+    <div id="drs">
+        <p id="anoin">
+شرح الوسم 
+        </p>
+        <pre class="code-box" onclick="copyCode(this)">
+&lt;div&gt;هنا تكتب الأكواد&lt;/div&gt;
+        </pre>
+        <pre id="alshrh">
+في هاذا الوسم نستطيع ان نضع كل شي في داخله
+نصوص صور روابط فديوات صوتيات اي شي يطلق على هاذا الوسم حاويه لانه يحتوي ويحمل كل كود او وسم يكتب في داخله 
+كي نستطيع التنسيق عليهم جميعا من خلال اعطاء اسم للدف كما شرحنا طريقه تسميه العناصر في الدرس الاول في ال css نعطي اسم لهاذا ال div ثم نستدعيه وننسق عليها كما في المثال التالي 
+        </pre>
+        <pre class="code-box" onclick="copyCode(this)">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ar"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;مثال على div مع تنسيق&lt;/title&gt;
+    &lt;style&gt;
+        /* تنسيق العنصر div */
+        .myDiv {
+            background-color: #4CAF50;  /* لون الخلفية */
+            color: white;  /* لون النص */
+            padding: 20px;  /* إضافة مساحة داخلية حول النص */
+            border-radius: 10px;  /* جعل الزوايا مدورة */
+            text-align: center;  /* محاذاة النص في المنتصف */
+            font-size: 20px;  /* تغيير حجم النص */
+            width: 300px;  /* تحديد عرض العنصر */
+            margin: 0 auto;  /* جعل العنصر في المنتصف */
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;div class="myDiv"&gt;هنا تكتب الأكواد&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+        </pre>
+    </div>
+</div>
+<div class="lesson-pagehhh" id="lesson5hhh">
+    <div class="lesson-headerhhh">
+        <h2 class="lesson-titlehhh">HTML الدرس 5</h2>
+        <button class="back-buttonhhh" onclick="goBackHHH()">عودة</button>
+    </div>
+    <div id="drs">
+        <pre id="alshrh">
+في هاذا الدرس سوف نتحدث عن الصور 
+        </pre>
+        <p id="anoin">
+شرح الوسم 
+        </p>
+        <pre class="code-box" onclick="copyCode(this)">
+&lt;img src="رابط_الصورة.jpg" alt="وصف الصورة"&gt;
+        </pre>
+        <pre id="alshrh">
+وهي تتكون من وسم فتح فقط لا يوحد لها وسم اغلاق نصع مكان رابط الصوره اموقع الصوره على الجهاز وفي اي ملف او مجلد او نضع رابط خارجي اذا كانت الصوره منشوره على النت نجلب رابطها ونضعه مكان رابط الصوره 
+
+اما كلمه وصف الصوره نضع مكانها عنوان الصوره اذا لم تحمل الصوره وحدثت مشكله يظهر هاذا العنون ويتم التنسيق على الصوره داخل الوسم ستايل في css 
+        </pre>
+    </div>
+</div>
+        <div class="lesson-pagehhh" id="lesson6hhh">
+            <div class="lesson-headerhhh">
+                <h2 class="lesson-titlehhh">HTML الدرس 6</h2>
+                <button class="back-buttonhhh" onclick="goBackHHH()">عودة</button>
+            </div>
+   <div id="drs">
+  <pre id="alshrh">
+في هاذا الدرس سوف نتحدث عن ادخال البيانات من قبل المستخدم
+</per>
+<p id="anoin">
+شرح الوسم 
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+&lt;input type="text" name="name" placeholder="أدخل اسمك"&gt;
+</pre>
+<pre id="alshrh">
+هاذا هوه وسم ادخال البيانات من قبل المستخدم اسمه ان بوت الوسم فردي اي يتكون من فتح فقط ولايوجد اغلاق للوسم 
+الان سوف نقوم بتشريح الوسم 
+
+
+
+1. input
+
+هو الوسم الأساسي الذي يُستخدم لإنشاء عنصر إدخال في HTML.
+
+يسمح للمستخدم بإدخال البيانات في النموذج، مثل النصوص أو الأرقام أو الخيارات.
+
+
+2. type="text"
+
+type: هذه السمة تحدد نوع الإدخال الذي سيظهر للمستخدم.
+
+في هذه الحالة، النوع هو text، مما يعني أن الحقل سيكون عبارة عن مربع نص يمكن للمستخدم كتابة نص فيه.
+
+أنواع أخرى يمكن أن تستخدم هي: password (إخفاء النصوص المدخلة)، email (للتحقق من صيغة البريد الإلكتروني)، number (لإدخال الأرقام)، وغيرها.
+
+
+3. name="name"
+
+name: هذه السمة تُستخدم لتسمية حقل الإدخال.
+
+عندما يتم إرسال النموذج إلى الخادم، سيتم إرسال القيمة المدخلة في هذا الحقل مع الاسم المحدد هنا (في هذه الحالة، "name").
+
+يُستخدم هذا الاسم لتحديد البيانات التي أُرسلت من النموذج على الخادم.
+
+
+4. placeholder="أدخل اسمك"
+
+placeholder: هذه السمة تُعرض نصًا داخل الحقل عندما يكون فارغًا، وهو موجه للمستخدم ليعرف ماذا يجب عليه إدخال.
+
+في هذه الحالة، النص المعروض هو "أدخل اسمك"، وهو تلميح للمستخدم بضرورة إدخال اسمه في الحقل.
+
+عندما يبدأ المستخدم في الكتابة، يختفي النص المعروض في الـ placeholder.
+
+
+مثال:
+
+عند استخدام هذا الوسم في نموذج، سيظهر للمستخدم حقل نصي يحتوي على النص "أدخل اسمك" كدليل لما يجب أن يكتبه. عندما يبدأ المستخدم الكتابة، سيختفي هذا النص، ويبدأ في إدخال بياناته.
+
+</pre>
+<p id="anoin">
+شرح جميع انوع type
+</p>
+<pre id="alshrh">
+  
+  هنا جمبع انوع input
+
+1. type="text": يستخدم لإنشاء حقل نصي يسمح للمستخدم بإدخال نص.
+
+
+2. type="password": مشابه لـ "text"، ولكن النص المدخل يتم إخفاؤه (مثل كلمة المرور).
+
+
+3. type="radio": يتيح للمستخدم اختيار خيار واحد فقط من مجموعة من الخيارات.
+
+
+4. type="checkbox": يتيح للمستخدم اختيار أو إلغاء اختيار خيارات متعددة.
+
+
+5. type="submit": ينشئ زرًا لإرسال النموذج.
+
+
+6. type="reset": ينشئ زرًا لإعادة تعيين جميع الحقول في النموذج إلى قيمها الافتراضية.
+
+
+7. type="button": ينشئ زرًا يمكن تخصيصه بأي وظيفة باستخدام JavaScript.
+
+
+8. type="file": يتيح للمستخدم اختيار ملف من جهاز الكمبيوتر لتحميله.
+
+
+9. type="hidden": ينشئ حقلًا مخفيًا لا يظهر للمستخدم.
+
+
+10. type="image": ينشئ زرًا يحتوي على صورة يمكن النقر عليها لإرسال النموذج.
+
+
+11. type="date": يسمح للمستخدم باختيار تاريخ باستخدام واجهة محددة.
+
+
+12. type="email": يسمح للمستخدم بإدخال عنوان بريد إلكتروني. يقوم المتصفح بالتحقق من صحة التنسيق.
+
+
+13. type="number": يسمح للمستخدم بإدخال رقم فقط، ويمكن تحديد القيم العليا والدنيا.
+
+
+14. type="tel": يسمح للمستخدم بإدخال رقم هاتف.
+
+
+15. type="url": يسمح للمستخدم بإدخال عنوان URL. يقوم المتصفح بالتحقق من صحة التنسيق.
+
+
+16. type="range": يتيح للمستخدم تحديد قيمة ضمن نطاق باستخدام شريط تمرير.
+
+
+17. type="color": يسمح للمستخدم باختيار لون باستخدام واجهة اختيار الألوان.
+
+
+18. type="datetime-local": يسمح للمستخدم باختيار تاريخ ووقت معًا.
+
+
+19. type="month": يسمح للمستخدم باختيار شهر وسنة فقط.
+
+
+20. type="week": يسمح للمستخدم باختيار أسبوع في السنة.
+
+
+21. type="time": يسمح للمستخدم باختيار وقت فقط (بدون تاريخ).
+
+
+22. type="search": يتيح للمستخدم إدخال نص بحث. قد يعرض بعض المتصفحات واجهة خاصة للبحث.
+
+
+23. type="image": يمكن للمستخدم إدخال صورة باستخدام مربع حوار لاختيار صورة.
+
+
+</pre>
+<p id="anoin">
+شرح سمات ال input
+</p>
+<pre id="alshrh">
+
+إليك شرح جميع سمات الوسم  inputفي HTML:
+
+1. type: يحدد نوع الحقل (مثل text, password, checkbox, radio, إلخ).
+
+
+2. name: يحدد اسم الحقل ويستخدم لإرسال البيانات إلى الخادم (خاصة في نماذج HTML).
+
+
+3. value: يحدد القيمة الافتراضية للحقل أو القيمة التي يتم إرسالها إلى الخادم عند إرسال النموذج.
+
+
+4. id: يحدد معرفًا فريدًا للحقل يمكن استخدامه للاستهداف باستخدام JavaScript أو CSS.
+
+
+5. placeholder: يحدد النص الذي يظهر داخل الحقل عندما يكون فارغًا، ويختفي عندما يبدأ المستخدم في الكتابة.
+
+
+6. required: إذا كانت هذه السمة موجودة، فإن الحقل يصبح إلزاميًا ويجب على المستخدم تعبئته قبل إرسال النموذج.
+
+
+7. disabled: إذا كانت هذه السمة موجودة، يتم تعطيل الحقل ولا يمكن التفاعل معه (لا يمكن للمستخدم تعبئته أو اختياره).
+
+
+8. readonly: يجعل الحقل غير قابل للتعديل (يمكن التفاعل معه ولكن لا يمكن تغيير قيمته).
+
+
+9. maxlength: يحدد الحد الأقصى لعدد الأحرف التي يمكن للمستخدم إدخالها في الحقل النصي.
+
+
+10. size: يحدد عدد الأحرف المرئيين في الحقل النصي (يؤثر على عرض الحقل).
+
+
+11. min: يحدد الحد الأدنى للقيمة التي يمكن إدخالها في الحقل (يُستخدم عادة مع أنواع مثل number, range, date).
+
+
+12. max: يحدد الحد الأقصى للقيمة التي يمكن إدخالها في الحقل (يُستخدم عادة مع أنواع مثل number, range, date).
+
+
+13. step: يحدد مقدار القيم التي يمكن للمستخدم زيادتها أو تقليلها عند إدخال قيم عددية (يُستخدم عادة مع number و range).
+
+
+14. autofocus: إذا كانت هذه السمة موجودة، يتم تحديد التركيز تلقائيًا على الحقل عند تحميل الصفحة.
+
+
+15. autocorrect: يستخدم لتحديد ما إذا كان يجب تمكين التصحيح التلقائي للنصوص المدخلة (يُستخدم عادة في الحقول التي تحتوي على نصوص).
+
+
+16. autocomplete: يحدد ما إذا كان يجب تمكين إكمال تلقائي للقيم المدخلة في الحقل (يسمح للمستخدمين بالاختيار من القيم السابقة).
+
+
+17. form: يحدد النموذج الذي ينتمي إليه الحقل (يُستخدم عندما يكون الحقل خارج النموذج ولكن ترغب في ربطه به).
+
+
+18. formaction: يحدد عنوان URL الذي يتم إرسال النموذج إليه عند إرسال النموذج باستخدام هذا الحقل.
+
+
+19. formenctype: يحدد كيفية ترميز البيانات عند إرسال النموذج باستخدام هذا الحقل (يُستخدم مع formaction).
+
+
+20. formmethod: يحدد طريقة إرسال البيانات عند إرسال النموذج باستخدام هذا الحقل (GET أو POST).
+
+
+21. formtarget: يحدد نافذة أو إطار الهدف الذي سيتم إرسال البيانات إليه.
+
+
+22. formnovalidate: إذا كانت هذه السمة موجودة، فإنه يتم تعطيل التحقق من صحة البيانات للنموذج عند إرسال البيانات باستخدام هذا الحقل.
+
+
+23. multiple: يسمح للمستخدم بتحديد أكثر من ملف لتحميله (يُستخدم مع file).
+
+
+24. pattern: يحدد تعبيرًا عاديًا (Regular Expression) للتحقق من صحة المدخلات (يُستخدم مع أنواع مثل text, email, tel).
+
+
+25. spellcheck: يحدد ما إذا كان يجب تمكين التدقيق الإملائي في الحقل.
+
+
+26. inputmode: يحدد نوع لوحة المفاتيح التي يجب أن تظهر على الأجهزة المحمولة (مثل numeric, tel, email).
+
+
+27. capture: يتيح للمستخدم التقاط صورة أو فيديو باستخدام كاميرا الجهاز أو الميكروفون.
+
+
+
+كل سمة من هذه السمات تضيف وظائف أو ميزات اضافيه لحقل  input
+
+</pre>
+</div>
+        </div>
+        <div class="lesson-pagehhh" id="lesson7hhh">
+            <div class="lesson-headerhhh">
+                <h2 class="lesson-titlehhh">HTML الدرس 7</h2>
+                <button class="back-buttonhhh" onclick="goBackHHH()">عودة</button>
+            </div>
+            <h5>5</h5>
+        </div>
+        <div class="lesson-pagehhh" id="lesson8hhh">
+            <div class="lesson-headerhhh">
+                <h2 class="lesson-titlehhh">HTML الدرس 8</h2>
+                <button class="back-buttonhhh" onclick="goBackHHH()">عودة</button>
+            </div>
+            <h5>5</h5>
+        </div>
+        <div class="lesson-pagehhh" id="lesson9hhh">
+            <div class="lesson-headerhhh">
+                <h2 class="lesson-titlehhh">HTML الدرس 9</h2>
+                <button class="back-buttonhhh" onclick="goBackHHH()">عودة</button>
+            </div>
+            <h5>5</h5>
+        </div>
+    </div>
+
+    <script>
+        function showLessonHHH(lessonNumber) {
+            document.getElementById("buttonsPagehhh").style.visibility = "hidden";
+            document.getElementById(`lesson${lessonNumber}hhh`).style.display = "block";
+        }
+
+        function goBackHHH() {
+            document.querySelectorAll(".lesson-pagehhh").forEach(page => {
+                page.style.display = "none";
+            });
+            document.getElementById("buttonsPagehhh").style.visibility = "visible";
+        }
+    </script>
+</div>
+<div id="CSS" class="page">
+  
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .button-containerccc {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        width: 90%;
+        max-width: 900px;
+        z-index: 2;
+        margin: 2vh;
+       position: absolute;
+       padding-bottom:50px;
+    }
+
+    .lesson-buttonccc {
+        padding: 10px 20px;
+        background-color: #555;
+        color: white;
+        font-size: 1.2em;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+        white-space: nowrap;
+        width: auto;
+        height: auto;
+        font-size: calc(1vw + 0.5em);
+        padding: calc(0.5vw + 10px) calc(1vw + 20px);
+    }
+
+    .lesson-buttonccc:hover {
+        background-color: #0056b3;
+        transform: translateY(-4px);
+    }
+
+    .lesson-buttonccc:active {
+        background-color: #004085;
+        transform: translateY(2px);
+    }
+
+    .lesson-pageccc {
+        display: none;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        z-index: 1;
+        max-width: 900px;
+        position: absolute;
+        margin:2vh;
+        padding-bottom:50px;
+        
+      
+    }
+
+    .lesson-headerccc {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .lesson-titleccc {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .back-buttonccc {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .back-buttonccc:hover {
+        background-color: #218838;
+    }
+</style>
+
+<div id="Htmlccc">
+    <div class="button-containerccc" id="buttonsPageccc">
+        <button class="lesson-buttonccc" onclick="showLessonCCC(1)">الدرس 1</button>
+        <button class="lesson-buttonccc" onclick="showLessonCCC(2)">الدرس 2</button>
+        <button class="lesson-buttonccc" onclick="showLessonCCC(3)">الدرس 3</button>
+        <button class="lesson-buttonccc" onclick="showLessonCCC(4)">الدرس 4</button>
+        <button class="lesson-buttonccc" onclick="showLessonCCC(5)">الدرس 5</button>
+        <button class="lesson-buttonccc" onclick="showLessonCCC(6)">الدرس 6</button>
+        <button class="lesson-buttonccc" onclick="showLessonCCC(7)">الدرس 7</button>
+        <button class="lesson-buttonccc" onclick="showLessonCCC(8)">الدرس 8</button>
+        <button class="lesson-buttonccc" onclick="showLessonCCC(7)">الدرس 7</button>
+        <button class="lesson-buttonccc" onclick="showLessonCCC(9)">الدرس 9</button>
+    </div>
+
+    <div class="lesson-pageccc" id="lesson1ccc">
+        <div class="lesson-headerccc">
+            <h2 class="lesson-titleccc"> CSS الدرس 1</h2>
+            <button class="back-buttonccc" onclick="goBackCCC()">عودة</button>
+        </div>
+ <div id="drs">
+  <per id="alshrh">
+في هاذا الدرس سوف نتعلم طريقه التنسيق من خلال HTML و CSS 
+</per>
+<p id="anoin">
+من خلال HTML 
+</p>
+<pre id="alshrh">
+  وذالك عن طريق اضافه الوسم style الى الفقره نفسها اي الى داخل الكود كما في الكود التالي 
+</pre>
+<pre class="code-box" onclick="copyCode(this)">
+&lt;p style=&quot;
+     color: red; 
+     font-size: 18px;
+     line-height: 1.8;
+     text-align: center;
+                  &quot;&gt;
+</pre>
+<pre id="alshrh">
+في هاذا الكود اضفنا التنسيق داخل الوسم نفسه وهاذا متعب في الاكودا الطويله وسوف يسبب خربطه ولكن يجب تعلمه لانه مهم ونحتاجه في مواقف مستقبليه 
+</pre>
+<p id="anoin">
+من خلال استخدام الوسم style في ال head
+</p>
+<pre id="alshrh">
+ويتم ذالك عن طريق تسمية الفقرات او استدعائها باسمها وهي بثلاثة طرق 
+</pre>
+<p id="anoin">
+الطريقه الاولى 
+</p>
+<per id="alshrh">
+كما في الكود التالي وهي استدعاء الوسم نفسه باسمه وفتح الاقوس الاخاصه ب ستايل ال css ونقوم بتنسيق عليه 
+</per>
+<pre class="code-box" onclick="copyCode(this)">
+h1{
+التنسيق هنا
+}
+</pre>
+<hr id="h-r">
+<p id="anoin">
+الطريقة الثانية 
+</p>
+<per id="alshrh">
+اوهي ان نعطي لوسم HTMLاسم للايظي الخاص به كما في المثال التالي نضع مربع ثم نستدعي اسم الايدي 
+</per>
+<pre class="code-box" onclick="copyCode(this)">
+        &lt;h1 id:x;&gt;هنا وضعنا ايدي  &lt;/h1&gt;
+        
+        #x{
+        هنا نكتب التنسيق
+        }
+</pre>
+<hr id="h-r">
+<p id="anoin">
+الطريقه الثالثة
+</p>
+<per id="alshrh">
+في هاذهي الطريقه سوف نضع class بدل الايدي كما في المثال التالي 
+</per>
+<pre class="code-box" onclick="copyCode(this)">
+        &lt;h1 class:c;&gt;هنا وضعنا كلاس &lt;/h1&gt;
+        
+        .c{
+        هنا نضع اكواد css
+        }
+</pre>
+
+
+</div>
+    </div>
+
+    <div class="lesson-pageccc" id="lesson2ccc">
+        <div class="lesson-headerccc">
+            <h2 class="lesson-titleccc">  CSSالدرس 2</h2>
+            <button class="back-buttonccc" onclick="goBackCCC()">عودة</button>
+        </div>
+<div id="drs">
+  <pre id="alshrh">
+في هذا الدرس سنشرح الخصائص المتعلقة في النصوص
+</pre>
+
+  <p id="anoin">
+1. تحديد نوع الخط (font-family)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  font-family: Arial, sans-serif; /* استخدام خط Arial */
+}
+
+p {
+  font-family: 'Times New Roman', serif; /* استخدام خط Times New Roman */
+}
+
+p {
+  font-family: 'Courier New', monospace; /* استخدام خط Courier New */
+}
+</pre>
+<pre id="alshrh">
+تستخدم font-family لتحديد نوع الخط المستخدم في النص. يمكن استخدام أسماء الخطوط المعروفة مثل Arial أو Times New Roman أو خطوط خاصة عبر قيم متعددة.
+</pre>
+
+  <p id="anoin">
+2. تحديد حجم الخط (font-size)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  font-size: 16px; /* تحديد حجم الخط 16 بكسل */
+}
+
+p {
+  font-size: 1.5em; /* تحديد حجم الخط بالنسبة لحجم الخط الأب */
+}
+
+p {
+  font-size: 20pt; /* تحديد حجم الخط باستخدام نقاط (pt) */
+}
+</pre>
+<pre id="alshrh">
+تستخدم font-size لتحديد حجم الخط. يمكن تحديد الحجم بوحدات مثل البكسل (px)، أو النسبة المئوية (em)، أو النقاط (pt).
+</pre>
+
+  <p id="anoin">
+3. التحكم في سمك الخط (font-weight)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  font-weight: normal; /* تحديد سمك الخط الطبيعي */
+}
+
+p {
+  font-weight: bold; /* تحديد الخط العريض */
+}
+
+p {
+  font-weight: 700; /* تحديد سمك الخط باستخدام الأرقام */
+}
+</pre>
+<pre id="alshrh">
+تستخدم font-weight لتحديد سمك الخط. يمكن أن تكون القيم مثل normal أو bold، أو قيمة عددية مثل 700 لزيادة سمك الخط.
+</pre>
+
+  <p id="anoin">
+4. التحكم في ميلان الخط (font-style)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  font-style: normal; /* تحديد نمط الخط العادي */
+}
+
+p {
+  font-style: italic; /* تحديد نمط الخط المائل */
+}
+
+p {
+  font-style: oblique; /* تحديد نمط الخط المائل بدرجة صغيرة */
+}
+</pre>
+<pre id="alshrh">
+تستخدم font-style لتحديد نمط الخط. يمكن أن تكون القيم مثل normal أو italic أو oblique لخط مائل بدرجة خفيفة.
+</pre>
+  <p id="anoin">
+5. التحكم في محاذاة النص (text-align)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  text-align: left; /* محاذاة النص إلى اليسار */
+}
+
+p {
+  text-align: center; /* محاذاة النص إلى المنتصف */
+}
+
+p {
+  text-align: right; /* محاذاة النص إلى اليمين */
+}
+</pre>
+<pre id="alshrh">
+تستخدم text-align لتحديد محاذاة النص داخل العنصر. القيم الممكنة هي left و center و right.
+</pre>
+
+  <p id="anoin">
+6. تباعد الأسطر (line-height)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  line-height: 1.5; /* تعيين تباعد الأسطر 1.5 مرة من حجم الخط */
+}
+
+p {
+  line-height: 20px; /* تحديد تباعد الأسطر بوحدات بكسل */
+}
+
+p {
+  line-height: 2em; /* تحديد تباعد الأسطر باستخدام em */
+}
+</pre>
+<pre id="alshrh">
+تستخدم line-height لتحديد التباعد بين الأسطر. يمكن تحديدها بوحدات مثل px أو em أو كنسبة من حجم الخط.
+</pre>
+
+  <p id="anoin">
+7. تحديد تباعد الحروف (letter-spacing)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  letter-spacing: 2px; /* إضافة مسافة 2 بكسل بين الحروف */
+}
+
+p {
+  letter-spacing: 0.1em; /* إضافة مسافة بين الحروف باستخدام em */
+}
+</pre>
+<pre id="alshrh">
+تستخدم letter-spacing لتحديد المسافة بين الحروف. يمكن تحديدها بوحدات مثل px أو em.
+</pre>
+
+  <p id="anoin">
+8. التحكم في التباعد بين الكلمات (word-spacing)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  word-spacing: 5px; /* إضافة مسافة 5 بكسل بين الكلمات */
+}
+
+p {
+  word-spacing: 0.2em; /* إضافة مسافة بين الكلمات باستخدام em */
+}
+</pre>
+<pre id="alshrh">
+تستخدم word-spacing لتحديد المسافة بين الكلمات في النص. يمكن تحديدها بوحدات مثل px أو em.
+</pre>
+  <p id="anoin">
+9. تحديد المسافة بين الفقرات (margin)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  margin: 10px; /* إضافة مسافة 10 بكسل حول الفقرة */
+}
+
+p {
+  margin: 10px 20px; /* إضافة مسافة 10 بكسل من الأعلى والأسفل و20 بكسل من اليمين واليسار */
+}
+
+p {
+  margin: 10px 15px 20px 25px; /* ترتيب: أعلى - يمين - أسفل - يسار */
+}
+</pre>
+<pre id="alshrh">
+تستخدم margin لتحديد المسافة بين العنصر والعناصر المحيطة به. يمكن تخصيص المسافة لكل جهة.
+</pre>
+
+  <p id="anoin">
+10. تحديد المحاذاة العمودية للنص (vertical-align)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  vertical-align: top; /* محاذاة النص إلى الأعلى */
+}
+
+p {
+  vertical-align: middle; /* محاذاة النص إلى المنتصف */
+}
+
+p {
+  vertical-align: bottom; /* محاذاة النص إلى الأسفل */
+}
+</pre>
+<pre id="alshrh">
+تستخدم vertical-align لتحديد محاذاة النص عموديًا بالنسبة للعناصر الأخرى.
+</pre>
+
+  <p id="anoin">
+11. تحديد النص العريض (font-weight)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  font-weight: normal; /* الخط العادي */
+}
+
+p {
+  font-weight: bold; /* الخط العريض */
+}
+
+p {
+  font-weight: 700; /* تحديد سمك الخط باستخدام الأرقام */
+}
+</pre>
+<pre id="alshrh">
+تستخدم font-weight لتحديد سمك الخط. يمكن أن تكون القيم مثل normal أو bold، أو قيمة عددية مثل 700 لزيادة سمك الخط.
+</pre>
+
+  <p id="anoin">
+12. النص المائل (font-style)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  font-style: normal; /* الخط العادي */
+}
+
+p {
+  font-style: italic; /* الخط المائل */
+}
+
+p {
+  font-style: oblique; /* خط مائل بدرجة صغيرة */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم font-style لتحديد نمط الخط. يمكن أن تكون القيم normal، italic، أو oblique.
+</pre>
+
+  <p id="anoin">
+13. تحديد النص المتعدد الأسطر (text-overflow)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* إضافة 3 نقاط عندما يتجاوز النص العرض */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم text-overflow لتحديد كيفية عرض النص عندما يكون أطول من العنصر. يمكن أن تكون القيم ellipsis أو clip.
+</pre>
+
+  <p id="anoin">
+14. تحديد التباعد بين الأسطر (line-height)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  line-height: 1.8; /* تعيين تباعد الأسطر 1.8 مرة من حجم الخط */
+}
+
+p {
+  line-height: 24px; /* تعيين تباعد الأسطر باستخدام بكسل */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم line-height لتحديد التباعد بين الأسطر. يمكن تحديد التباعد بوحدات مثل px أو em أو كنسبة من حجم الخط.
+</pre>
+
+  <p id="anoin">
+15. تحديد المسافة بين الكلمات (word-spacing)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  word-spacing: 5px; /* إضافة مسافة 5 بكسل بين الكلمات */
+}
+
+p {
+  word-spacing: 0.3em; /* إضافة مسافة بين الكلمات باستخدام em */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم word-spacing لتحديد المسافة بين الكلمات داخل النص. يمكن تحديد المسافة بوحدات مثل px أو em.
+</pre>
+
+  <p id="anoin">
+16. تحديد التعداد النقطي (list-style-type)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+ul {
+  list-style-type: square; /* تحديد التعداد على شكل مربع */
+}
+
+ul {
+  list-style-type: circle; /* تحديد التعداد على شكل دائرة */
+}
+
+ul {
+  list-style-type: disc; /* التعداد بشكل نقطي */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم list-style-type لتحديد شكل التعداد في القوائم. القيم الممكنة هي square و circle و disc.
+</pre>
+
+  <p id="anoin">
+17. تحديد ألوان التعداد (list-style-color)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+ul {
+  list-style-color: red; /* تحديد لون التعداد الأحمر */
+}
+
+ul {
+  list-style-color: #00ff00; /* تحديد لون التعداد الأخضر باستخدام HEX */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم list-style-color لتحديد لون التعداد في القوائم. يمكن تحديد اللون باستخدام الألوان المعروفة مثل red أو قيم HEX مثل #00ff00.
+</pre>
+
+  <p id="anoin">
+18. محاذاة النص داخل العنصر (text-align)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  text-align: left; /* محاذاة النص إلى اليسار */
+}
+
+div {
+  text-align: center; /* محاذاة النص إلى المنتصف */
+}
+
+div {
+  text-align: right; /* محاذاة النص إلى اليمين */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم text-align لتحديد محاذاة النص داخل العنصر. يمكن أن تكون القيم left و center و right.
+</pre>
+
+  <p id="anoin">
+19. التحكم في النص المتعدد الأسطر (white-space)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  white-space: nowrap; /* منع التفاف النص إلى الأسطر الجديدة */
+}
+
+p {
+  white-space: pre; /* الحفاظ على الفراغات والأسطر */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم white-space لتحديد كيفية التعامل مع النص في أسطر متعددة. يمكن أن تكون القيم nowrap أو pre.
+</pre>
+
+  <p id="anoin">
+20. تحديد المسافة من النص (text-indent)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  text-indent: 20px; /* إضافة مسافة بادئة 20 بكسل */
+}
+
+p {
+  text-indent: 1em; /* إضافة مسافة بادئة باستخدام em */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم text-indent لإضافة مسافة بادئة للنص في بداية الفقرة. يمكن تحديد المسافة بوحدات مثل px أو em.
+</pre>
+
+  <p id="anoin">
+21. إظهار النص المخفي (visibility)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  visibility: hidden; /* إخفاء العنصر ولكن يبقى في مكانه */
+}
+
+div {
+  visibility: visible; /* إظهار العنصر */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم visibility لإخفاء أو إظهار العناصر. القيمة hidden تخفي العنصر ولكن تترك المساحة، بينما visible تعرض العنصر.
+</pre>
+
+  <p id="anoin">
+22. تحديد المسافة من الأعلى (margin-top)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  margin-top: 10px; /* إضافة مسافة 10 بكسل من الأعلى */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم margin-top لتحديد المسافة بين العنصر والعناصر التي فوقه.
+</pre>
+
+  <p id="anoin">
+23. تحديد المسافة من الأسفل (margin-bottom)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  margin-bottom: 10px; /* إضافة مسافة 10 بكسل من الأسفل */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم margin-bottom لتحديد المسافة بين العنصر والعناصر التي تحته.
+</pre>
+
+  <p id="anoin">
+24. التحكم في تأثير النص عند المرور عليه (text-decoration)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+a {
+  text-decoration: none; /* إزالة أي تأثيرات تزيين النص */
+}
+
+a {
+  text-decoration: underline; /* إضافة خط تحت النص */
+}
+
+a {
+  text-decoration: line-through; /* إضافة خط عبر النص */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم text-decoration لتحديد تأثير النص مثل إضافة خط تحت النص (underline) أو خط عبر النص (line-through).
+</pre>
+
+  <p id="anoin">
+25. تحديد حجم التعداد (list-style-size)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+ul {
+  list-style-size: 40px; /* تحديد حجم التعداد */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم list-style-size لتحديد حجم التعداد في القوائم.
+</pre>
+
+  <p id="anoin">
+26. تحديد العنوان الفرعي (text-transform)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+h1 {
+  text-transform: uppercase; /* تحويل النص إلى أحرف كبيرة */
+}
+
+h1 {
+  text-transform: lowercase; /* تحويل النص إلى أحرف صغيرة */
+}
+
+h1 {
+  text-transform: capitalize; /* تحويل أول حرف من كل كلمة إلى حرف كبير */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم text-transform لتغيير حالة النص بين الأحرف الصغيرة والكبيرة أو لتحويل أول حرف من كل كلمة إلى حرف كبير.
+</pre>
+
+  <p id="anoin">
+27. تحديد ترتيب النص (text-align-last)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  text-align-last: center; /* محاذاة النص في السطر الأخير إلى المنتصف */
+}
+
+p {
+  text-align-last: right; /* محاذاة النص في السطر الأخير إلى اليمين */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم text-align-last لتحديد محاذاة النص في السطر الأخير.
+</pre>
+
+  <p id="anoin">
+28. التحكم في الكتابة العربية (direction)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  direction: rtl; /* الكتابة من اليمين إلى اليسار */
+}
+
+p {
+  direction: ltr; /* الكتابة من اليسار إلى اليمين */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم direction لتحديد اتجاه النص. يمكن أن تكون القيم rtl (من اليمين لليسار) أو ltr (من اليسار لليمين).
+</pre>
+
+  <p id="anoin">
+29. التحكم في النص المتداخل (text-indent)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  text-indent: 20px; /* تحديد المسافة البادئة للنص */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم text-indent لإضافة مسافة بادئة للنص في بداية الفقرة.
+</pre>
+
+  <p id="anoin">
+30. التحكم في التكرار لصورة الخلفية (background-repeat)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  background-repeat: repeat; /* تكرار الصورة في الخلفية */
+}
+
+div {
+  background-repeat: no-repeat; /* عدم تكرار الصورة في الخلفية */
+}
+
+div {
+  background-repeat: repeat-x; /* تكرار الصورة أفقيًا */
+}
+
+div {
+  background-repeat: repeat-y; /* تكرار الصورة عموديًا */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم background-repeat لتحديد تكرار صورة الخلفية. يمكن أن تكون القيم repeat و no-repeat و repeat-x و repeat-y.
+</pre>
+
+  <p id="anoin">
+31. إضافة تأثيرات النص (text-shadow)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* إضافة ظل للنص */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم text-shadow لإضافة ظل للنص. يمكن تحديد الاتجاه والحجم واللون باستخدام القيم المناسبة.
+</pre>
+
+  <p id="anoin">
+32. التحكم في الارتفاع المتاح للنص (min-height)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  min-height: 100px; /* تعيين الحد الأدنى لارتفاع العنصر */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم min-height لتحديد الحد الأدنى لارتفاع العنصر. إذا كان المحتوى أقل من هذه القيمة، سيتم زيادة حجم العنصر.
+</pre>
+
+  <p id="anoin">
+32. التحكم في الارتفاع المتاح للنص (min-height)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  min-height: 100px; /* تعيين الحد الأدنى لارتفاع العنصر */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم min-height لتحديد الحد الأدنى لارتفاع العنصر. إذا كان المحتوى أقل من هذه القيمة، سيتم زيادة حجم العنصر.
+</pre>
+
+  <p id="anoin">
+33. التحكم في أقصى عرض (max-width)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  max-width: 500px; /* تعيين الحد الأقصى لعرض العنصر */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم max-width لتحديد الحد الأقصى لعرض العنصر. إذا كان المحتوى أكبر من هذا العرض، سيتم تصغيره.
+</pre>
+
+  <p id="anoin">
+34. التحكم في الحد الأدنى للعرض (min-width)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  min-width: 300px; /* تعيين الحد الأدنى لعرض العنصر */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم min-width لتحديد الحد الأدنى لعرض العنصر. إذا كان المحتوى أقل من هذا العرض، سيتم توسيع العنصر.
+</pre>
+
+  <p id="anoin">
+35. إضافة تأثير النص عند الوقوف عليه (hover)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+a:hover {
+  color: red; /* تغيير اللون عند المرور بالفأرة على الرابط */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم pseudo-class hover لإضافة تأثيرات للنص عند مرور الماوس عليه. يمكن تغيير اللون أو إضافة أي تأثيرات أخرى.
+</pre>
+
+  <p id="anoin">
+36. التحكم في شدة التباعد بين الأسطر (line-height)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+p {
+  line-height: 1.5; /* تعيين تباعد الأسطر بنسبة 1.5 من حجم النص */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم line-height لضبط تباعد الأسطر بين النصوص. يمكن تحديد القيمة باستخدام نسبة مئوية أو وحدات مثل px و em.
+</pre>
+
+  <p id="anoin">
+37. تحديد نوع التعداد (list-style-type)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+ul {
+  list-style-type: disc; /* شكل التعداد دائري */
+}
+
+ul {
+  list-style-type: square; /* شكل التعداد مربع */
+}
+
+ul {
+  list-style-type: circle; /* شكل التعداد دائرة */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم list-style-type لتحديد شكل التعداد في القوائم. القيم الممكنة هي disc و square و circle.
+</pre>
+</div>
+    </div>
+
+    <div class="lesson-pageccc" id="lesson3ccc">
+        <div class="lesson-headerccc">
+            <h2 class="lesson-titleccc"> CSS الدرس 3</h2>
+            <button class="back-buttonccc" onclick="goBackCCC()">عودة</button>
+        </div>
+        <div id="drs">
+  
+  <pre id="alshrh">
+في هاذا الدرس سوف نشرح جميع خصائص الصور
+</pre>
+  <p id="anoin">
+1. تحديد عرض الصورة (width)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  width: 100%; /* عرض الصورة يتناسب مع عرض العنصر الأب */
+}
+
+img {
+  width: 300px; /* تعيين عرض الصورة بـ 300 بكسل */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية width لتحديد عرض الصورة. يمكن تعيين العرض باستخدام وحدات مثل px و %.
+</pre>
+
+  <p id="anoin">
+2. تحديد ارتفاع الصورة (height)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  height: 200px; /* تعيين ارتفاع الصورة بـ 200 بكسل */
+}
+
+img {
+  height: auto; /* يسمح للصورة بالحفاظ على نسبها الأصلية */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية height لتحديد ارتفاع الصورة. يمكن تحديدها باستخدام وحدات مثل px أو تركها auto للحفاظ على النسب.
+</pre>
+
+  <p id="anoin">
+3. تغطية الصورة (object-fit)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  object-fit: cover; /* الصورة ستغطي العنصر بأكمله مع الحفاظ على النسب */
+}
+
+img {
+  object-fit: contain; /* الصورة ستتسع داخل العنصر مع الحفاظ على النسب */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية object-fit للتحكم في كيفية ملاءمة الصورة داخل العنصر. cover يعني أن الصورة ستغطي كامل المساحة، بينما contain يعني أن الصورة ستظل كاملة ولكن قد تحتوي على مساحات فارغة.
+</pre>
+
+  <p id="anoin">
+4. تحديد صورة خلفية باستخدام صورة (background-image)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  background-image: url('image.jpg');
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية background-image لتعيين صورة خلفية للعنصر. يمكن استخدام روابط أو مسارات محلية للصور.
+</pre>
+
+  <p id="anoin">
+5. تحديد حجم الصورة التلقائي (auto)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  width: auto; /* السماح للصورة بالحفاظ على حجمها الأصلي */
+  height: auto; /* السماح للصورة بالحفاظ على ارتفاعها الأصلي */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم auto في عرض وارتفاع الصورة لتوفير الحجم الأصلي للصورة دون تعديل.
+</pre>
+
+  <p id="anoin">
+6. تحديد حدود الصورة (border)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  border: 2px solid black; /* تعيين حدود للصورة بسمك 2 بكسل ولون أسود */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية border لتحديد سمك ولون الحدود حول الصورة.
+</pre>
+
+  <p id="anoin">
+7. إضافة ظل للصورة (box-shadow)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  box-shadow: 10px 10px 5px grey; /* إضافة ظل للصورة */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية box-shadow لإضافة تأثير الظل حول الصورة. يمكن تخصيص حجم واتجاه الظل.
+</pre>
+
+  <p id="anoin">
+8. تقليص الصورة لتناسب العنصر (max-width, max-height)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  max-width: 100%; /* تعيين الحد الأقصى لعرض الصورة */
+  max-height: 300px; /* تعيين الحد الأقصى لارتفاع الصورة */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية max-width و max-height لتحديد أقصى عرض وارتفاع يمكن أن تصل إليه الصورة.
+</pre>
+
+  <p id="anoin">
+9. جعل الصورة دائرية (border-radius)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  border-radius: 50%; /* جعل الصورة دائرية */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم border-radius لتحديد حواف مستديرة للصورة. عند تعيينها بـ 50%، تتحول الصورة إلى دائرة إذا كانت مربعة.
+</pre>
+
+  <p id="anoin">
+10. ضبط صورة على الطفو (float)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  float: left; /* تعويم الصورة إلى اليسار */
+}
+
+img {
+  float: right; /* تعويم الصورة إلى اليمين */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية float لتحريك الصورة إلى اليسار أو اليمين داخل العنصر، مما يسمح بتدفق النص حول الصورة.
+</pre>
+
+  <p id="anoin">
+11. تحديد مدى شفافية الصورة (opacity)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  opacity: 0.5; /* تعيين الشفافية بنسبة 50% */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية opacity لتحديد مدى شفافية الصورة. القيم تتراوح بين 0 (شفاف بالكامل) و 1 (غير شفاف).
+</pre>
+
+  <p id="anoin">
+12. تعديل صورة باستخدام تأثيرات الفلتر (filter)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  filter: grayscale(100%); /* تحويل الصورة إلى تدرج رمادي */
+}
+
+img {
+  filter: blur(5px); /* إضافة تأثير تشويش على الصورة */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية filter لإضافة تأثيرات على الصورة مثل التدرج الرمادي أو التشويش أو السطوع. يمكن تخصيص هذه التأثيرات حسب الحاجة.
+</pre>
+
+  <p id="anoin">
+13. منع الصورة من التمدد (object-position)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  object-position: center; /* تحديد مركز الصورة */
+}
+
+img {
+  object-position: top left; /* تعيين الصورة في الزاوية العلوية اليسرى */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية object-position لتحديد موضع الصورة داخل العنصر عندما يتم تغيير حجمها باستخدام object-fit.
+</pre>
+
+  <p id="anoin">
+14. منع تكبير الصورة أو تصغيرها عند تغيير حجم العنصر (image-rendering)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  image-rendering: pixelated; /* عرض الصورة بطريقة بيكسيلية */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية image-rendering لتحديد كيف يجب عرض الصورة عند تغيير حجمها. القيمة pixelated تجعل الصورة تظهر بشكل بيكسلي.
+</pre>
+
+  <p id="anoin">
+15. جعل الصورة تتوسع لتغطي المساحة المتاحة (object-fit: fill)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  object-fit: fill; /* الصورة ستتوسع لتغطي العنصر بالكامل */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم object-fit: fill لتمديد الصورة لتغطية المساحة الكاملة للعنصر، مما قد يؤدي إلى تشويه الصورة.
+</pre>
+
+  <p id="anoin">
+16. خاصية `image-rendering`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  image-rendering: auto;  /* يعرض الصورة بجودة طبيعية */
+}
+
+img {
+  image-rendering: crisp-edges; /* يعرض الصورة بشكل حواف حادة */
+}
+
+img {
+  image-rendering: pixelated; /* يظهر الصورة بشكل بيكسلي */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية image-rendering لتحديد كيفية عرض الصورة عند تكبيرها أو تصغيرها. يمكن استخدامها لعرض الصورة بشكل طبيعي أو بشكل بيكسلي.
+</pre>
+
+  <p id="anoin">
+17. خاصية `mask-image`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  mask-image: url('mask.png'); /* تعيين صورة كقناع */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية mask-image لإضافة قناع للصورة، حيث يتم إخفاء بعض الأجزاء من الصورة بناءً على الصورة القناع المحددة.
+</pre>
+
+  <p id="anoin">
+18. خاصية `mask-size`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  mask-size: cover; /* القناع يغطي الصورة بالكامل */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية mask-size لتحديد حجم صورة القناع، ويمكن استخدام قيم مثل cover وcontain لتحديد كيف يغطي القناع الصورة.
+</pre>
+
+  <p id="anoin">
+19. خاصية `mask-position`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  mask-position: center; /* وضع القناع في المنتصف */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية mask-position لتحديد موضع صورة القناع داخل العنصر.
+</pre>
+
+  <p id="anoin">
+20. خاصية `object-fit: scale-down`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  object-fit: scale-down; /* تجعل الصورة تتناسب مع العنصر دون تكبيرها */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية object-fit: scale-down لضبط الصورة بحيث لا يتم تكبيرها أو تصغيرها بشكل مفرط داخل العنصر، ولكن ستظل في حجمها الأصلي إذا كانت أصغر من العنصر.
+</pre>
+
+  <p id="anoin">
+21. خاصية `object-position` مع القيم المتقدمة
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  object-position: 50% 50%; /* تعيين الصورة في المنتصف */
+}
+
+img {
+  object-position: top left; /* وضع الصورة في الزاوية العلوية اليسرى */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية object-position لتحديد موضع الصورة داخل العنصر. يمكن استخدام القيم مثل 50% 50% لوضع الصورة في المنتصف أو top left لتحديد موضع الصورة في الزاوية العلوية اليسرى.
+</pre>
+
+  <p id="anoin">
+22. خاصية `box-shadow` للصورة
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* إضافة ظل للصورة */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية box-shadow لإضافة ظل للصورة. يمكنك تخصيص حجم واتجاه الظل باستخدام القيم المناسبة.
+</pre>
+
+  <p id="anoin">
+23. خاصية `filter: drop-shadow`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  filter: drop-shadow(10px 10px 5px rgba(0, 0, 0, 0.5)); /* إضافة ظل خارجي للصورة */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية filter مع drop-shadow لإضافة ظل حول الصورة. يمكن تحديد الحجم والاتجاه للظل كما هو الحال في box-shadow.
+</pre>
+
+  <p id="anoin">
+24. خاصية `background-size` للصورة كخلفية
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  background-image: url('image.jpg');
+  background-size: cover;  /* تغطي الصورة الخلفية العنصر بالكامل */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية background-size لتحديد حجم الصورة الخلفية. يمكن استخدام cover لجعل الصورة تغطي الخلفية بالكامل.
+</pre>
+
+  <p id="anoin">
+25. خاصية `background-repeat`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  background-image: url('image.jpg');
+  background-repeat: no-repeat; /* منع تكرار الصورة الخلفية */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية background-repeat لتحديد ما إذا كانت الصورة الخلفية ستتكرر أم لا. يمكنك تحديد no-repeat لمنع التكرار.
+</pre>
+
+  <p id="anoin">
+26. خاصية `background-position`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  background-image: url('image.jpg');
+  background-position: center center;  /* وضع الصورة في المنتصف */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية background-position لتحديد مكان الصورة داخل العنصر. يمكنك تحديد الموضع باستخدام القيم مثل center center.
+</pre>
+
+  <p id="anoin">
+27. خاصية `@media print`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+@media print {
+  img {
+    max-width: 100%; /* ضبط أقصى عرض للصورة عند الطباعة */
+  }
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية @media print لتحديد تنسيق الصور عند الطباعة. يمكن استخدامها لضبط عرض الصور عند الطباعة بحيث لا تتجاوز عرض الصفحة.
+</pre>
+
+  <p id="anoin">
+28. خاصية `object-fit: fill`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  object-fit: fill; /* تجعل الصورة تتمدد لتغطية المساحة المتاحة */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم object-fit: fill لتغطية العنصر بالكامل بواسطة الصورة، مما قد يؤدي إلى تشويه الصورة إذا كانت النسب مختلفة.
+</pre>
+
+  <p id="anoin">
+29. خاصية `border-radius` للصورة
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  border-radius: 10px; /* حواف مستديرة للصورة */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية border-radius لجعل حواف الصورة مستديرة. يمكن تعيينها بقيم مثل 10px أو 50% لجعل الصورة دائرية إذا كانت مربعة.
+</pre>
+
+  <p id="anoin">
+30. خاصية `filter: grayscale`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+img {
+  filter: grayscale(100%); /* تحويل الصورة إلى تدرج رمادي */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية filter مع grayscale لتحويل الصورة إلى تدرج رمادي. يمكنك التحكم في درجة التدرج باستخدام القيم من 0% إلى 100%.
+</pre>
+
+
+</div>
+    </div>
+    <div class="lesson-pageccc" id="lesson4ccc">
+        <div class="lesson-headerccc">
+            <h2 class="lesson-titleccc"> CSS الدرس 4</h2>
+            <button class="back-buttonccc" onclick="goBackCCC()">عودة</button>
+        </div>
+        <div id="drs">
+  <pre id="alshrh">
+في هاذا الدرس سوف نشرح جميع خصائص ال input
+</pre>
+
+  <p id="anoin">
+1. خاصية `width`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  width: 100%; /* تحديد عرض حقل الإدخال ليأخذ 100% من الحاوية */
+}
+</pre>
+<pre id="alshrh">
+تستخدم خاصية `width` لتحديد عرض حقل الإدخال. يمكن تحديده بوحدات مثل `px`, `%`, `em`, وغيرها.
+</pre>
+
+  <p id="anoin">
+2. خاصية `height`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  height: 40px; /* تحديد ارتفاع حقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `height` لتحديد ارتفاع حقل الإدخال. يمكن تحديده بوحدات مثل `px`, `em`, وغيرها.
+</pre>
+
+  <p id="anoin">
+3. خاصية `border`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  border: 1px solid #ccc; /* تحديد إطار لحقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `border` لتحديد حدود حقل الإدخال، مثل اللون، العرض، والنمط. يمكن تحديدها بقيم مثل `px`, `solid`, و `#ccc`.
+</pre>
+
+  <p id="anoin">
+4. خاصية `border-radius`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  border-radius: 5px; /* جعل حواف حقل الإدخال مستديرة */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `border-radius` لجعل حواف حقل الإدخال مستديرة. يمكن تحديد القيمة بوحدات مثل `px` أو `%`.
+</pre>
+
+  <p id="anoin">
+5. خاصية `padding`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  padding: 10px; /* إضافة مسافة داخلية حول النص داخل حقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `padding` لإضافة مسافة داخلية حول محتوى حقل الإدخال مثل النص.
+</pre>
+
+
+  <p id="anoin">
+6. خاصية `font-size`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  font-size: 16px; /* تحديد حجم الخط داخل حقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `font-size` لتحديد حجم النص داخل حقل الإدخال. يمكن تحديد الحجم بوحدات مثل `px`, `em`, وغيرها.
+</pre>
+
+  <p id="anoin">
+7. خاصية `color`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  color: #333; /* تحديد لون النص داخل حقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `color` لتحديد لون النص داخل حقل الإدخال.
+</pre>
+
+  <p id="anoin">
+8. خاصية `background-color`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  background-color: #f0f0f0; /* تحديد لون خلفية حقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `background-color` لتحديد لون خلفية حقل الإدخال.
+</pre>
+
+  <p id="anoin">
+9. خاصية `outline`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  outline: none; /* إزالة الإطار الخارجي عند التركيز */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `outline` لإزالة أو تخصيص الإطار الذي يظهر عند تركيز المستخدم على حقل الإدخال.
+</pre>
+
+  <p id="anoin">
+10. خاصية `box-shadow`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* إضافة ظل لحقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `box-shadow` لإضافة ظل حول حقل الإدخال. يمكن تخصيص الظل باستخدام قيم مثل `px`, `rgba`, وغيرها.
+</pre>
+
+  <p id="anoin">
+11. خاصية `text-align`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  text-align: center; /* محاذاة النص داخل حقل الإدخال إلى المنتصف */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `text-align` لمحاذاة النص داخل حقل الإدخال، مثل المحاذاة إلى اليسار، اليمين، أو المنتصف.
+</pre>
+
+  <p id="anoin">
+12. خاصية `display`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  display: inline-block; /* عرض حقل الإدخال كعنصر مدمج */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `display` لتحديد كيفية عرض حقل الإدخال. يمكن أن تكون القيم مثل `inline`, `block`, `inline-block`, وغيرها.
+</pre>
+
+  <p id="anoin">
+13. خاصية `opacity`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  opacity: 0.8; /* تعيين شفافية حقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `opacity` لتحديد درجة شفافية حقل الإدخال. تتراوح القيمة بين 0 (شفاف تمامًا) و 1 (غير شفاف).
+</pre>
+
+  <p id="anoin">
+14. خاصية `transition`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  transition: all 0.3s ease; /* إضافة تأثيرات انتقالية لحقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `transition` لإضافة تأثيرات انتقالية عند حدوث تغيير في خصائص حقل الإدخال مثل تغيير اللون أو الحجم.
+</pre>
+
+  <p id="anoin">
+15. خاصية `cursor`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  cursor: pointer; /* تغيير شكل المؤشر إلى اليد عند المرور فوق حقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `cursor` لتحديد شكل المؤشر عند المرور فوق حقل الإدخال. يمكن استخدام قيم مثل `pointer`, `text`, `default`, وغيرها.
+</pre>
+
+  <p id="anoin">
+16. خاصية `background-image`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  background-image: url('icon.png'); /* إضافة صورة كخلفية داخل حقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `background-image` لإضافة صورة خلفية لحقل الإدخال. يمكن استخدام صورة مثل أي URL.
+</pre>
+
+  <p id="anoin">
+17. خاصية `resize`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  resize: none; /* منع المستخدم من تغيير حجم حقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `resize` للتحكم في ما إذا كان يمكن تغيير حجم حقل الإدخال من قبل المستخدم. القيم الشائعة هي `none`, `both`, `horizontal`, و `vertical`.
+</pre>
+
+  <p id="anoin">
+18. خاصية `max-width` و `min-width`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  max-width: 300px; /* تحديد أقصى عرض لحقل الإدخال */
+  min-width: 150px; /* تحديد أقل عرض لحقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `max-width` و `min-width` لتحديد الحد الأقصى والأدنى لعرض حقل الإدخال.
+</pre>
+
+  <p id="anoin">
+19. خاصية `max-height` و `min-height`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  max-height: 40px; /* تحديد أقصى ارتفاع لحقل الإدخال */
+  min-height: 20px; /* تحديد أقل ارتفاع لحقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `max-height` و `min-height` لتحديد الحد الأقصى والأدنى لارتفاع حقل الإدخال.
+</pre>
+
+  <p id="anoin">
+20. خاصية `text-transform`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  text-transform: uppercase; /* تحويل النص إلى أحرف كبيرة */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `text-transform` لتغيير تنسيق النص داخل حقل الإدخال، مثل تحويله إلى أحرف صغيرة </pre>
+
+  <p id="anoin">
+20. خاصية `text-transform`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  text-transform: uppercase; /* تحويل النص إلى أحرف كبيرة */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `text-transform` لتغيير تنسيق النص داخل حقل الإدخال، مثل تحويله إلى أحرف صغيرة أو كبيرة أو العكس.
+</pre>
+
+  <p id="anoin">
+21. خاصية `box-sizing`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  box-sizing: border-box; /* احتساب الحواف والمسافات الداخلية داخل الحجم الكلي للعنصر */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `box-sizing` لتحديد كيفية حساب الأبعاد (العرض والارتفاع) في العنصر. عند استخدام `border-box`, يتم تضمين الحواف والمسافات الداخلية في الحجم الكلي.
+</pre>
+
+  <p id="anoin">
+22. خاصية `vertical-align`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  vertical-align: middle; /* محاذاة حقل الإدخال عموديًا في الوسط */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `vertical-align` لمحاذاة حقل الإدخال عموديًا بالنسبة للعنصر المحيط به. يمكن استخدام قيم مثل `top`, `middle`, `bottom`.
+</pre>
+
+  <p id="anoin">
+23. خاصية `box-shadow`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* إضافة ظل حول حقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `box-shadow` لإضافة ظل حول حقل الإدخال. يمكنك تخصيص الظل باستخدام قيم مثل `px`, `rgba`, `spread`, و `blur`.
+</pre>
+
+  <p id="anoin">
+24. خاصية `cursor`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  cursor: pointer; /* تغيير شكل المؤشر عند التفاعل مع حقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `cursor` لتحديد شكل المؤشر عندما يمر فوق حقل الإدخال، مثل تغيير المؤشر إلى شكل اليد (`pointer`).
+</pre>
+
+  <p id="anoin">
+25. خاصية `text-indent`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  text-indent: 20px; /* إزاحة النص داخل حقل الإدخال بمقدار 20 بكسل من اليسار */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `text-indent` لتحريك النص داخل حقل الإدخال بمقدار معين من الحافة اليسرى.
+</pre>
+
+  <p id="anoin">
+26. خاصية `resize`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  resize: none; /* منع المستخدم من تغيير حجم حقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `resize` لتحديد ما إذا كان يمكن للمستخدم تغيير حجم حقل الإدخال أم لا. القيم الممكنة هي `none`, `both`, `horizontal`, و `vertical`.
+</pre>
+
+  <p id="anoin">
+27. خاصية `outline`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  outline: none; /* إزالة الإطار الخارجي من حقل الإدخال عند التركيز */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `outline` لإزالة أو تخصيص الإطار الخارجي الذي يظهر حول حقل الإدخال عند تركيز المستخدم عليه.
+</pre>
+
+  <p id="anoin">
+28. خاصية `background-position`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  background-position: center; /* تحديد موقع صورة الخلفية داخل حقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `background-position` لتحديد موضع صورة الخلفية داخل حقل الإدخال. القيم الممكنة تشمل `left`, `right`, `center`, و `top`.
+</pre>
+
+  <p id="anoin">
+29. خاصية `background-repeat`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  background-repeat: no-repeat; /* منع تكرار صورة الخلفية داخل حقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `background-repeat` لتحديد ما إذا كانت صورة الخلفية ستتكرر داخل حقل الإدخال أم لا. القيم الممكنة هي `repeat`, `no-repeat`, و `repeat-x`.
+</pre>
+
+  <p id="anoin">
+30. خاصية `max-width` و `min-width`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  max-width: 300px; /* تحديد أقصى عرض لحقل الإدخال */
+  min-width: 150px; /* تحديد أقل عرض لحقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `max-width` و `min-width` لتحديد الحد الأقصى والأدنى لعرض حقل الإدخال.
+</pre>
+
+  <p id="anoin">
+31. خاصية `max-height` و `min-height`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  max-height: 40px; /* تحديد أقصى ارتفاع لحقل الإدخال */
+  min-height: 20px; /* تحديد أقل ارتفاع لحقل الإدخال */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `max-height` و `min-height` لتحديد الحد الأقصى والأدنى لارتفاع حقل الإدخال.
+</pre>
+
+  <p id="anoin">
+32. خاصية `visibility`
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+input {
+  visibility: hidden; /* إخفاء حقل الإدخال ولكن يبقى المساحة التي يشغلها */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية `visibility` للتحكم في ما إذا كان حقل الإدخال مرئيًا أم لا. القيم الممكنة هي `visible` و `hidden`.
+</pre>
+</div>
+    </div>
+    <div class="lesson-pageccc" id="lesson5ccc">
+        <div class="lesson-headerccc">
+            <h2 class="lesson-titleccc"> CSS الدرس 5</h2>
+            <button class="back-buttonccc" onclick="goBackCCC()">عودة</button>
+        </div>
+        <div id="drs">
+  <pre id="alshrh">
+في هذا الدرس سنشرح بعض الخصائص الخاصة بالأزرار في CSS.
+</pre>
+  
+  <p id="anoin">
+1. تحديد لون الخلفية (Background Color)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  background-color: #4CAF50; /* اللون الأخضر */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية background-color لتحديد لون خلفية الزر. يمكن استخدام ألوان مثل HEX أو RGB أو الكلمات المفتاحية.
+</pre>
+
+  <p id="anoin">
+2. تحديد الحدود (Border)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  border: 2px solid #4CAF50; /* حد بسمك 2 بكسل ولونه أخضر */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية border لتحديد مظهر الحدود حول الزر. يمكنك تحديد السمك والنمط (مثل solid, dashed) واللون.
+</pre>
+
+  <p id="anoin">
+3. تحديد الزوايا الدائرية (Border Radius)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  border-radius: 12px; /* زوايا دائرية بمقدار 12 بكسل */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية border-radius لتحديد مدى انحناء الزوايا في الزر، مما يعطيه شكلًا دائريًا أو مستديرًا.
+</pre>
+
+  <p id="anoin">
+4. المسافات الداخلية (Padding)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  padding: 10px 20px; /* مسافة داخلية 10px من الأعلى والأسفل و 20px من اليمين واليسار */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية padding لتحديد المسافة بين محتوى الزر وحدوده. يمكن تحديد المسافة لجميع الجهات أو تخصيصها لكل جهة بشكل منفصل.
+</pre>
+
+  <p id="anoin">
+5. تحديد لون النص (Color)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  color: white; /* لون النص داخل الزر */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية color لتحديد لون النص داخل الزر. يمكن استخدام ألوان بنظام RGB أو HEX أو الكلمات المفتاحية.
+</pre>
+
+  <p id="anoin">
+6. تغيير حجم الخط (Font Size)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  font-size: 16px; /* حجم الخط 16 بكسل */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية font-size لتحديد حجم الخط المستخدم داخل الزر. يمكن تحديد الحجم باستخدام البكسل (px) أو النسب المئوية أو وحدات أخرى.
+</pre>
+
+  <p id="anoin">
+7. محاذاة النص (Text Align)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  text-align: center; /* محاذاة النص إلى المنتصف */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية text-align لمحاذاة النص داخل الزر. يمكن تحديد المحاذاة كـ left, center, أو right.
+</pre>
+
+  <p id="anoin">
+8. تأثير التغيير عند التمرير (Hover Effect)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button:hover {
+  background-color: #45a049; /* تغيير اللون عند التمرير */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية :hover لتحديد تأثيرات الزر عند التمرير فوقه. يمكن تغيير اللون أو إضافة تأثيرات أخرى عند التفاعل مع الزر.
+</pre>
+
+  <p id="anoin">
+9. تغيير شكل المؤشر عند التمرير (Cursor)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  cursor: pointer; /* تغيير المؤشر إلى شكل يد عند التمرير */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية cursor لتحديد نوع المؤشر الذي يظهر عند المرور فوق الزر. القيمة `pointer` تُستخدم عادة لتمثيل الأزرار.
+</pre>
+
+  <p id="anoin">
+10. إزالة الإطار الافتراضي (Outline)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  outline: none; /* إزالة الإطار حول الزر */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية outline لإزالة أو تخصيص الإطار الذي يظهر حول الزر عندما يحصل على التركيز (focus).
+</pre>
+
+  <p id="anoin">
+11. تحديد عرض الزر (Width)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  width: 200px; /* عرض الزر 200 بكسل */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية width لتحديد عرض الزر. يمكن تحديده باستخدام وحدات مثل البكسل (px)، أو النسبة المئوية (%).
+</pre>
+
+  <p id="anoin">
+12. تحديد الارتفاع (Height)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  height: 50px; /* ارتفاع الزر 50 بكسل */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية height لتحديد ارتفاع الزر. يمكن تحديده باستخدام وحدات مثل البكسل (px) أو النسبة المئوية (%).
+</pre>
+
+
+  <p id="anoin">
+13. تحديد النصوص الغامقة (Font Weight)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  font-weight: bold; /* جعل النص غامقًا */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية font-weight لتحديد سمك النص داخل الزر. يمكن تحديدها بقيم مثل `normal`, `bold`, أو أرقام من 100 إلى 900.
+</pre>
+
+  <p id="anoin">
+14. تغيير نوع الخط (Font Family)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  font-family: 'Arial', sans-serif; /* نوع الخط Arial */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية font-family لتحديد نوع الخط المستخدم في النص داخل الزر. يمكن استخدام اسم الخط أو الخطوط البديلة.
+</pre>
+
+  <p id="anoin">
+15. محاذاة النص عموديًا (Vertical Align)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  vertical-align: middle; /* محاذاة النص في المنتصف عموديًا */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية vertical-align لضبط محاذاة النص داخل الزر عموديًا بالنسبة للمحتويات الأخرى.
+</pre>
+
+  <p id="anoin">
+16. تأثير التظليل (Box Shadow)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* تأثير ظل الزر */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية box-shadow لإضافة تأثير الظل للزر. يمكن تخصيص المسافة، الحجم، واللون.
+</pre>
+
+  <p id="anoin">
+17. تأثير التمويه عند التمرير (Transition)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  transition: background-color 0.3s ease; /* انتقال تأثير تغيير اللون */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية transition لتحديد تأثيرات التغيير التدريجي للخصائص عند التفاعل مع الزر مثل تغيير اللون أو الحجم.
+</pre>
+
+  <p id="anoin">
+18. الزر الشفاف (Opacity)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  opacity: 0.8; /* جعل الزر شفافًا بنسبة 80% */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية opacity لتحديد شفافية الزر. القيمة 1 تعني عدم وجود شفافية، بينما القيمة 0 تعني الشفافية التامة.
+</pre>
+
+  <p id="anoin">
+19. تأثير التمويه عند التركيز (Focus)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button:focus {
+  background-color: #45a049; /* تغيير الخلفية عند التركيز */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية :focus لتحديد تأثيرات الزر عندما يحصل على التركيز (عند النقر عليه أو تحديده باستخدام التاب).
+</pre>
+
+  <p id="anoin">
+20. إزالة تأثير الظل عند الضغط (Active)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button:active {
+  box-shadow: none; /* إزالة الظل عند الضغط على الزر */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية :active لتحديد التأثيرات التي تحدث عند الضغط على الزر، مثل إزالة الظلال أو تغيير اللون.
+</pre>
+
+  <p id="anoin">
+21. تأثير النص المائل (Font Style)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  font-style: italic; /* جعل النص مائلًا */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية font-style لتحديد نمط النص داخل الزر. يمكن تعيينه كـ `normal`, `italic`, أو `oblique`.
+</pre>
+
+  <p id="anoin">
+22. إضافة تأثيرات الخط العلوي (Text Transform)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  text-transform: uppercase; /* تحويل النص إلى أحرف كبيرة */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية text-transform لتحديد كيفية تحويل النص داخل الزر. القيم الممكنة هي `uppercase`, `lowercase`, و `capitalize`.
+</pre>
+
+  <p id="anoin">
+23. تحديد الخلفية المتدرجة (Background Gradient)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  background: linear-gradient(to right, red, yellow); /* تدرج لوني من الأحمر إلى الأصفر */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية background مع التدرجات اللونية (مثل linear-gradient) لإنشاء خلفيات متدرجة للزر بدلاً من اللون الثابت.
+</pre>
+
+  <p id="anoin">
+24. حجم الأيقونة داخل الزر (Icon Size)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button i {
+  font-size: 20px; /* تغيير حجم الأيقونة داخل الزر */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم هذه الخاصية لضبط حجم الأيقونات داخل الأزرار عند استخدام مكتبات الأيقونات مثل Font Awesome.
+</pre>
+
+  <p id="anoin">
+25. التأثير عند التمرير على النص (Text Shadow)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* إضافة ظل للنص داخل الزر */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية text-shadow لإضافة ظل للنص داخل الزر. يمكن تخصيص المسافة، اللون، والحجم.
+</pre>
+  
+  <p id="anoin">
+26. الحد الأدنى للطول (Min Height)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  min-height: 40px; /* تحديد الحد الأدنى للطول */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية min-height لتحديد الحد الأدنى للطول الذي يجب أن يكون عليه الزر، حتى لو كان المحتوى أقل من ذلك.
+</pre>
+
+  <p id="anoin">
+27. الحد الأقصى للطول (Max Height)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  max-height: 60px; /* تحديد الحد الأقصى للطول */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية max-height لتحديد الحد الأقصى للطول الذي يمكن أن يصل إليه الزر.
+</pre>
+
+  <p id="anoin">
+28. الحد الأدنى للعرض (Min Width)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  min-width: 100px; /* تحديد الحد الأدنى للعرض */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية min-width لتحديد الحد الأدنى لعرض الزر.
+</pre>
+
+  <p id="anoin">
+29. الحد الأقصى للعرض (Max Width)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  max-width: 200px; /* تحديد الحد الأقصى للعرض */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية max-width لتحديد الحد الأقصى للعرض الذي يمكن أن يصل إليه الزر.
+</pre>
+
+  <p id="anoin">
+30. تحديد محاذاة النص (Text Align)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button {
+  text-align: center; /* محاذاة النص في المنتصف */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية text-align لمحاذاة النص داخل الزر. القيم الممكنة هي `left`, `center`, `right`.
+</pre>
+
+  <p id="anoin">
+31. الشفافية عند الضغط (Active Opacity)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button:active {
+  opacity: 0.7; /* جعل الزر شفافًا عند الضغط */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية opacity عند الضغط على الزر لجعل الزر يصبح أكثر شفافية.
+</pre>
+
+  <p id="anoin">
+32. تأثير التحويل عند التمرير (Hover Transform)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+button:hover {
+  transform: scale(1.1); /* تكبير الزر عند التمرير */
+}
+</pre>
+<pre id="alshrh">
+تُستخدم خاصية transform مع :hover لإضافة تأثيرات مثل التكبير أو التدوير عند التمرير فوق الزر.
+</pre>
+
+</div>
+    </div>
+    <div class="lesson-pageccc" id="lesson6ccc">
+        <div class="lesson-headerccc">
+            <h2 class="lesson-titleccc"> CSS الدرس 6</h2>
+            <button class="back-buttonccc" onclick="goBackCCC()">عودة</button>
+        </div>
+        <div id="drs">
+  <pre id="alshrh">
+في هذا الدرس سنتعرف على خصائص CSS المختلفة لتنسيق الوسم div في HTML.
+</pre>
+
+  <p id="anoin">
+1. تحديد العرض والارتفاع (Width & Height)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  width: 200px;  /* العرض 200 بكسل */
+  height: 100px; /* الارتفاع 100 بكسل */
+}
+
+div {
+  width: 50%;  /* العرض نصف عرض العنصر الأب */
+  height: 50vh; /* الارتفاع نصف ارتفاع الشاشة */
+}
+</pre>
+<pre id="alshrh">
+تحدد width و height عرض وارتفاع العنصر. يمكن استخدام وحدات مثل البكسل (px)، النسبة المئوية (%)، أو وحدات العرض والارتفاع مثل (vw, vh).
+</pre>
+
+  <p id="anoin">
+2. تحديد الخلفية (Background)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  background-color: red; /* لون خلفية أحمر */
+  background-image: url('background.jpg'); /* إضافة صورة خلفية */
+  background-size: cover; /* جعل الصورة تغطي العنصر بالكامل */
+}
+</pre>
+<pre id="alshrh">
+تستخدم خاصية background لتحديد لون أو صورة الخلفية للعنصر.
+</pre>
+
+  <p id="anoin">
+3. التحكم في التباعد الداخلي (Padding)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  padding: 10px; /* مسافة داخلية متساوية من جميع الجهات */
+}
+
+div {
+  padding: 10px 20px; /* 10px أعلى وأسفل، 20px يمين ويسار */
+}
+
+div {
+  padding: 10px 15px 20px 25px; /* ترتيب: أعلى - يمين - أسفل - يسار */
+}
+</pre>
+<pre id="alshrh">
+تحدد padding المسافة بين محتوى العنصر وحدوده. يمكن تحديد المسافة نفسها لكل الجوانب أو تخصيصها لكل جهة على حدة.
+</pre>
+
+  <p id="anoin">
+4. التحكم في التباعد الخارجي (Margin)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  margin: 20px; /* مسافة خارجية متساوية من جميع الجهات */
+}
+
+div {
+  margin: 10px 15px; /* 10px أعلى وأسفل، 15px يمين ويسار */
+}
+
+div {
+  margin: 10px 15px 20px 25px; /* ترتيب: أعلى - يمين - أسفل - يسار */
+}
+</pre>
+<pre id="alshrh">
+تحدد margin المسافة بين العنصر والعناصر الأخرى المحيطة به. يمكن تخصيص المسافة لكل جهة على حدة.
+</pre>
+
+  <p id="anoin">
+5. تحديد الحواف (Border)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  border: 2px solid black; /* حافة بسمك 2 بكسل ولون أسود */
+  border-radius: 10px; /* جعل الحواف مدورة */
+}
+</pre>
+<pre id="alshrh">
+تستخدم border لتحديد الحافة الخارجية للعنصر. يمكن تخصيص سمك الحافة، نوعها (مثل solid) ولونها. أما border-radius فيستخدم لجعل الحواف مدورة.
+</pre>
+
+  <p id="anoin">
+6. التحكم في إخفاء المحتوى (Visibility)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  visibility: hidden; /* إخفاء العنصر مع الحفاظ على المساحة */
+}
+</pre>
+<pre id="alshrh">
+تستخدم visibility لتحديد ما إذا كان العنصر مرئيًا أم لا، مع الحفاظ على المساحة التي يشغلها العنصر.
+</pre>
+
+  <p id="anoin">
+7. تحديد موضع العنصر (Position)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  position: absolute; /* تحديد موضع العنصر باستخدام إحداثيات */
+  top: 10px;
+  left: 20px;
+}
+</pre>
+<pre id="alshrh">
+تستخدم position لتحديد كيفية موضع العنصر. يمكن استخدام قيم مثل absolute و relative و fixed و sticky مع خصائص مثل top و left لتحديد الموقع.
+</pre>
+
+  <p id="anoin">
+8. التحكم في إخفاء المحتوى الزائد (Overflow)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  overflow: hidden; /* إخفاء المحتوى الزائد */
+}
+
+div {
+  overflow: scroll; /* إضافة شريط تمرير للمحتوى الزائد */
+}
+</pre>
+<pre id="alshrh">
+تستخدم overflow للتحكم في كيفية التعامل مع المحتوى الذي يتجاوز حدود العنصر. يمكن تحديده على أنه hidden أو scroll أو auto.
+</pre>
+
+  <p id="anoin">
+9. استخدام flexbox (Flex)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  display: flex; /* تحديد العنصر ليعمل بنظام flexbox */
+  justify-content: center; /* محاذاة العناصر أفقيًا في المنتصف */
+  align-items: center; /* محاذاة العناصر عموديًا في المنتصف */
+}
+</pre>
+<pre id="alshrh">
+تستخدم flexbox لتنظيم العناصر داخل الحاوية بطريقة مرنة. باستخدام خصائص مثل justify-content و align-items يمكن محاذاة العناصر بشكل مرن.
+</pre>
+
+  <p id="anoin">
+10. استخدام grid (CSS Grid)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  display: grid; /* تحديد العنصر ليعمل بنظام grid */
+  grid-template-columns: 1fr 1fr; /* تحديد عمودين بمساواة */
+}
+</pre>
+<pre id="alshrh">
+تستخدم grid لتقسيم المساحة داخل العنصر إلى صفوف وأعمدة. يمكن تحديد عدد الأعمدة والصفوف باستخدام grid-template-columns و grid-template-rows.
+</pre>
+
+  <p id="anoin">
+11. تأثيرات التحويل (Transform)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  transform: rotate(45deg); /* تدوير العنصر بمقدار 45 درجة */
+}
+</pre>
+<pre id="alshrh">
+تستخدم transform لتطبيق تأثيرات على العنصر مثل التدوير، التحجيم، التحريك، أو التغيير في الشكل.
+</pre>
+
+  <p id="anoin">
+12. تأثيرات الانتقال (Transition)
+</p>
+<pre class="code-box" onclick="copyCode(this)">
+div {
+  transition: all 0.3s ease; /* إضافة انتقال تدريجي لجميع الخصائص خلال 0.3 ثانية */
+}
+</pre>
+<pre id="alshrh">
+تستخدم transition لإضافة تأثيرات انتقالية عندما يتغير العنصر من حالة إلى أخرى.
+</pre>
+
+</div>
+    </div>
+    <div class="lesson-pageccc" id="lesson7ccc">
+        <div class="lesson-headerccc">
+            <h2 class="lesson-titleccc"> CSS الدرس 7</h2>
+            <button class="back-buttonccc" onclick="goBackCCC()">عودة</button>
+        </div>
+        <p>سيتم إضافة الدرس قريبًا...</p>
+    </div>
+    <div class="lesson-pageccc" id="lesso8ccc">
+        <div class="lesson-headerccc">
+            <h2 class="lesson-titleccc"> CSS الدرس 8</h2>
+            <button class="back-buttonccc" onclick="goBackCCC()">عودة</button>
+        </div>
+        <p>سيتم إضافة الدرس قريبًا...</p>
+    </div>
+    <div class="lesson-pageccc" id="lesso9ccc">
+        <div class="lesson-headerccc">
+            <h2 class="lesson-titleccc"> CSS الدرس 9</h2>
+            <button class="back-buttonccc" onclick="goBackCCC()">عودة</button>
+        </div>
+        <p>سيتم إضافة الدرس قريبًا...</p>
+    </div>
+
+    <script>
+        function showLessonCCC(lessonNumber) {
+            document.getElementById("buttonsPageccc").style.visibility = "hidden";
+            document.getElementById(`lesson${lessonNumber}ccc`).style.display = "block";
+        }
+
+        function goBackCCC() {
+            document.querySelectorAll(".lesson-pageccc").forEach(page => {
+                page.style.display = "none";
+            });
+            document.getElementById("buttonsPageccc").style.visibility = "visible";
+        }
+    </script>
+</div>
+
+</div>
+<div id="JavaScript" class="page">
+  
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .button-containerjjj {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        width: 90%;
+        max-width: 900px;
+        z-index: 2;
+        margin: 2vh;
+        position: absolute;
+        padding-bottom:50px;
+    }
+
+    .lesson-buttonjjj {
+        padding: 10px 20px;
+        background-color: #004085;
+        color: white;
+        font-size: 1.2em;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+        white-space: nowrap;
+        width: auto;
+        height: auto;
+        font-size: calc(1vw + 0.5em);
+        padding: calc(0.5vw + 10px) calc(1vw + 20px);
+    }
+
+    .lesson-buttonjjj:hover {
+        background-color: #0056b3;
+        transform: translateY(-4px);
+    }
+
+    .lesson-buttonjjj:active {
+        background-color: #004085;
+        transform: translateY(2px);
+    }
+
+    .lesson-pagejjj {
+        display: none;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 900px;
+        z-index: 1;
+        position: absolute;
+        margin:2vh;
+        padding-bottom:50px;
+      
+    }
+
+    .lesson-headerjjj {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .lesson-titlejjj {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .back-buttonjjj {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .back-buttonjjj:hover {
+        background-color: #218838;
+    }
+</style>
+
+<div id="Htmljjj">
+    <div class="button-containerjjj" id="buttonsPagejjj">
+        <button class="lesson-buttonjjj" onclick="showLessonJJJ(1)">الدرس 1</button>
+        <button class="lesson-buttonjjj" onclick="showLessonJJJ(2)">الدرس 2</button>
+        <button class="lesson-buttonjjj" onclick="showLessonJJJ(3)">الدرس 3</button>
+    </div>
+
+    <div class="lesson-pagejjj" id="lesson1jjj">
+        <div class="lesson-headerjjj">
+            <h2 class="lesson-titlejjj"> JavaScribt الدرس 1</h2>
+            <button class="back-buttonjjj" onclick="goBackJJJ()">عودة</button>
+        </div>
+        <p>سيتم إضافة الدرس قريبًا...</p>
+    </div>
+
+    <div class="lesson-pagejjj" id="lesson2jjj">
+        <div class="lesson-headerjjj">
+            <h2 class="lesson-titlejjj"> JavaScribt الدرس 2</h2>
+            <button class="back-buttonjjj" onclick="goBackJJJ()">عودة</button>
+        </div>
+        <p>سيتم إضافة الدرس قريبًا...</p>
+    </div>
+
+    <div class="lesson-pagejjj" id="lesson3jjj">
+        <div class="lesson-headerjjj">
+            <h2 class="lesson-titlejjj">   JavaScribt الدرس 3</h2>
+            <button class="back-buttonjjj" onclick="goBackJJJ()">عودة</button>
+        </div>
+       <p>سيتم إضافة الدرس قريبًا...</p>
+    </div>
+
+    <script>
+        function showLessonJJJ(lessonNumber) {
+            document.getElementById("buttonsPagejjj").style.visibility = "hidden";
+            document.getElementById(`lesson${lessonNumber}jjj`).style.display = "block";
+        }
+
+        function goBackJJJ() {
+            document.querySelectorAll(".lesson-pagejjj").forEach(page => {
+                page.style.display = "none";
+            });
+            document.getElementById("buttonsPagejjj").style.visibility = "visible";
+        }
+    </script>
+</div>
+
+</div>
+
+  <!--سكربت الصفحه -->
+  <script>
+    // ===========================
+    // سكربتات JavaScript للموقع
+    // ===========================
+
+    // دالة لإظهار الصفحة المختارة وإخفاء الصفحات الأخرى
+    function showPage(pageId, element) {
+      // إخفاء جميع الصفحات
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => {
+        page.style.display = 'none';
+      });
+
+      // إظهار الصفحة المختارة
+      const selectedPage = document.getElementById(pageId);
+      if (selectedPage) {
+        selectedPage.style.display = 'block';
+      }
+
+      // إزالة الكلاس active عن جميع الروابط
+      const links = document.querySelectorAll('nav ul li a');
+      links.forEach(link => {
+        link.classList.remove('active');
+      });
+
+      // إضافة الكلاس active للعنصر الذي تم النقر عليه
+      element.classList.add('active');
+    }
+
+    // إظهار الصفحة الرئيسية بشكل افتراضي عند تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', () => {
+      showPage('home', document.querySelector('nav ul li a'));
+      
+      
+    });
+    
+     //هنا خاصيه نسخ الكود المشروح
+    function copyCode(element) {
+        const text = element.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            element.style.backgroundColor = "#3a3a3a";
+            setTimeout(() => {
+                element.style.backgroundColor = "#272822";
+            }, 300);
+        });
+    }
+     
+  </script>
+</body>
+</html>
